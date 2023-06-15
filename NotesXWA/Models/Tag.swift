@@ -6,3 +6,13 @@
 //
 
 import Foundation
+import SwiftData
+
+@Model
+class Tag {
+    @Attribute(.unique) var id: String
+    var name: String
+    
+    @Relationship var notes: [Note]
+    
+}

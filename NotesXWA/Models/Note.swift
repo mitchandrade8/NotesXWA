@@ -14,6 +14,8 @@ class Note {
     var content: String
     var createdAt: Date
     
+    @Relationship(inverse: \Tag.notes) var tags: [Tag]
+    
     init(id: String, content: String, createdAt: Date) {
         self.id = id
         self.content = content

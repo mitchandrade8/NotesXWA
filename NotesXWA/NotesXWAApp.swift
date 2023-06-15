@@ -6,12 +6,17 @@
 //
 
 import SwiftUI
+import SwiftData
 
 @main
 struct NotesXWAApp: App {
     var body: some Scene {
         WindowGroup {
             ContentView()
+                .modelContainer(for: [
+                    Note.self,
+                    Tag.self
+                ])
         }
     }
 }

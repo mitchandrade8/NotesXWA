@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import SwiftData
 
 struct NoteListView: View {
     var body: some View {
