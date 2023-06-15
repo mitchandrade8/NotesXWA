@@ -11,6 +11,7 @@
 		74AC08632A3BC75000230FA1 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74AC08622A3BC75000230FA1 /* ContentView.swift */; };
 		74AC08652A3BC75200230FA1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 74AC08642A3BC75200230FA1 /* Assets.xcassets */; };
 		74AC08682A3BC75200230FA1 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 74AC08672A3BC75200230FA1 /* Preview Assets.xcassets */; };
+		74AC08702A3BC98B00230FA1 /* Note.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74AC086F2A3BC98B00230FA1 /* Note.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -19,6 +20,7 @@
 		74AC08622A3BC75000230FA1 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		74AC08642A3BC75200230FA1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		74AC08672A3BC75200230FA1 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		74AC086F2A3BC98B00230FA1 /* Note.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Note.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -51,6 +53,7 @@
 		74AC085F2A3BC75000230FA1 /* NotesXWA */ = {
 			isa = PBXGroup;
 			children = (
+				74AC086E2A3BC97F00230FA1 /* Models */,
 				74AC08602A3BC75000230FA1 /* NotesXWAApp.swift */,
 				74AC08622A3BC75000230FA1 /* ContentView.swift */,
 				74AC08642A3BC75200230FA1 /* Assets.xcassets */,
@@ -65,6 +68,14 @@
 				74AC08672A3BC75200230FA1 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		74AC086E2A3BC97F00230FA1 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				74AC086F2A3BC98B00230FA1 /* Note.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -139,6 +150,7 @@
 			files = (
 				74AC08632A3BC75000230FA1 /* ContentView.swift in Sources */,
 				74AC08612A3BC75000230FA1 /* NotesXWAApp.swift in Sources */,
+				74AC08702A3BC98B00230FA1 /* Note.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
