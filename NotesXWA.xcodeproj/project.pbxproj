@@ -57,9 +57,9 @@
 		74AC085F2A3BC75000230FA1 /* NotesXWA */ = {
 			isa = PBXGroup;
 			children = (
+				74AC08602A3BC75000230FA1 /* NotesXWAApp.swift */,
 				74AC08732A3BCC3D00230FA1 /* Views */,
 				74AC086E2A3BC97F00230FA1 /* Models */,
-				74AC08602A3BC75000230FA1 /* NotesXWAApp.swift */,
 				74AC08622A3BC75000230FA1 /* ContentView.swift */,
 				74AC08642A3BC75200230FA1 /* Assets.xcassets */,
 				74AC08662A3BC75200230FA1 /* Preview Content */,
