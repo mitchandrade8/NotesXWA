@@ -12,11 +12,22 @@ import SwiftData
 struct NotesXWAApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
-                .modelContainer(for: [
-                    Note.self,
-                    Tag.self
-                ])
+            TabView {
+                noteList
+                tagList
+            }
+            .modelContainer(for: [
+                Note.self,
+                Tag.self
+            ])
         }
+    }
+    
+    var noteList: some View {
+        NoteListView()
+    }
+    
+    var tagList: some View {
+        TagListView()
     }
 }

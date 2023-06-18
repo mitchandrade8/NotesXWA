@@ -31,14 +31,26 @@ struct NoteListView: View {
                 if allNotes.isEmpty {
                     ContentUnavailableView("You do not have any notes yet.", systemImage: "note")
                 } else {
-                    
+                    ForEach(allNotes) { note in
+                        VStack(alignment: .leading) {
+                            Text(note.content)
+                            Text(note.createdAt, style: .time)
+                                .font(.subheadline)
+                        }
+                    }
+                    .onDelete { indexSet in
+                        indexSet.forEach { index in
+                            context.delete(allNotes[index])
+                        }
+                        try? context.save()
+                    }
                 }
             }
         }
     }
     
     func createNote() {
-        let note = Note(id: UUID().uuidString, content: noteText, createdAt: .now)
+        let note = Note(id: UUID().uuidString, content: noteText, createdAt: .now, tags: [])
         context.insert(note)
          try? context.save()
     }

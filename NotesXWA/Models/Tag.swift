@@ -15,4 +15,9 @@ class Tag {
     
     @Relationship var notes: [Note]
     
+    init(id: String, name: String, notes: [Note]) {
+        self.id = id
+        self.name = name
+        self.notes = notes
+    }
 }
