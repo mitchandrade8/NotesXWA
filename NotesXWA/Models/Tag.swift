@@ -14,6 +14,7 @@ class Tag {
     var name: String
     
     @Relationship var notes: [Note]
+    @Transient var isChecked = false
     
     init(id: String, name: String, notes: [Note]) {
         self.id = id

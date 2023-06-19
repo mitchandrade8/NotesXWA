@@ -24,10 +24,18 @@ struct NotesXWAApp: App {
     }
     
     var noteList: some View {
-        NoteListView()
+        NavigationStack {
+            NoteListView()
+                .navigationTitle("Notes")
+        }
+        .tabItem { Label("Notes", systemImage: "note") }
     }
     
     var tagList: some View {
-        TagListView()
+        NavigationStack {
+            TagListView()
+                .navigationTitle("Tags")
+        }
+        .tabItem { Label("Tags", systemImage: "tag") }
     }
 }

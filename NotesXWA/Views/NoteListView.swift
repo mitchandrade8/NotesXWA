@@ -12,6 +12,7 @@ struct NoteListView: View {
     
     @Environment(\.modelContext) private var context
     @Query(sort: \.createdAt, order: .reverse) var allNotes: [Note]
+    @Query(sort: \.name, order: .forward) var allTags: [Tag]
     @State var noteText = ""
     
     var body: some View {
@@ -20,6 +21,29 @@ struct NoteListView: View {
                 DisclosureGroup("Create a note") {
                     TextField("Enter text", text: $noteText, axis: .vertical)
                         .lineLimit(2...4)
+                    
+                    DisclosureGroup("Tag With") {
+                        if allTags.isEmpty {
+                            Text("You do not have any tags yet. Please create one from Tags tab")
+                                .foregroundStyle(Color.gray)
+                        }
+                        
+                        ForEach(allTags) { tag in
+                            HStack {
+                                Text(tag.name)
+                                if tag.isChecked {
+                                    Spacer()
+                                    Image(systemName: "checkmark.circle")
+                                        .symbolRenderingMode(.multicolor)
+                                }
+                            }
+                            .frame(maxWidth: .infinity, alignment: .leading)
+                            .contentShape(Rectangle())
+                            .onTapGesture {
+                                tag.isChecked.toggle()
+                            }
+                        }
+                    }
                     
                     Button("Save") {
                         createNote()
@@ -34,6 +58,10 @@ struct NoteListView: View {
                     ForEach(allNotes) { note in
                         VStack(alignment: .leading) {
                             Text(note.content)
+                            if note.tags.count > 0 {
+                                Text("Tags:" + note.tags.map { $0.name }.joined(separator: ", "))
+                                    .font(.caption)
+                            }
                             Text(note.createdAt, style: .time)
                                 .font(.subheadline)
                         }
@@ -43,6 +71,7 @@ struct NoteListView: View {
                             context.delete(allNotes[index])
                         }
                         try? context.save()
+                        noteText = ""
                     }
                 }
             }
@@ -50,6 +79,8 @@ struct NoteListView: View {
     }
     
     func createNote() {
+        
+        
         let note = Note(id: UUID().uuidString, content: noteText, createdAt: .now, tags: [])
         context.insert(note)
          try? context.save()

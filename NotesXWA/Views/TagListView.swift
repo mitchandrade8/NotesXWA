@@ -41,6 +41,7 @@ struct TagListView: View {
                             context.delete(allTags[index])
                         }
                         try? context.save()
+                        tagText = ""
                     }
                 }
             }
