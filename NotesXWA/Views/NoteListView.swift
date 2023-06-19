@@ -79,9 +79,15 @@ struct NoteListView: View {
     }
     
     func createNote() {
+        var tags = [Tag]()
+        allTags.forEach { tag in
+            if tag.isChecked {
+                tags.append(tag)
+                tag.isChecked = false
+            }
+        }
         
-        
-        let note = Note(id: UUID().uuidString, content: noteText, createdAt: .now, tags: [])
+        let note = Note(id: UUID().uuidString, content: noteText, createdAt: .now, tags: tags)
         context.insert(note)
          try? context.save()
     }
